@@ -95,6 +95,147 @@
             </div>
         </section>
 
+        <!-- Live Fleet Simulation Section -->
+        <section id="live-fleet" class="live-core features simulation">
+            <div class="section-header">
+                <h2 data-i18n="live-title">NARA-T Live Core</h2>
+                <p data-i18n="live-subtitle">Connect directly to your running SageMaker instance and witness real-time inference.</p>
+            </div>
+
+            <div class="sim-container glass-card">
+
+                <!-- 0. Context Stats (Chapter 1: Dataset Overview) -->
+                <div class="sim-context-stats">
+                    <div class="context-stat-card">
+                        <div class="context-stat-icon"><i data-lucide="music"></i></div>
+                        <div class="context-stat-value">5,000</div>
+                        <div class="context-stat-label" data-i18n="stat-artists">Artist in Database</div>
+                    </div>
+                    <div class="context-stat-card">
+                        <div class="context-stat-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <div class="context-stat-value">181,381</div>
+                        <div class="context-stat-label" data-i18n="stat-interactions">Real Listening Records</div>
+                    </div>
+                    <div class="context-stat-card">
+                        <div class="context-stat-icon"><i data-lucide="users"></i></div>
+                        <div class="context-stat-value">50</div>
+                        <div class="context-stat-label" data-i18n="stat-personas">AI Test Persona</div>
+                    </div>
+                    <div class="context-stat-card">
+                        <div class="context-stat-icon"><i data-lucide="zap"></i></div>
+                        <div class="context-stat-value">&lt; 54<span class="stat-unit">ms</span></div>
+                        <div class="context-stat-label" data-i18n="stat-latency">Inference Latency</div>
+                    </div>
+                </div>
+
+                <!-- 1. Connection Controls -->
+                <div class="live-connection" style="margin-bottom: 2rem;">
+                    <div class="input-group">
+                        <i data-lucide="link"></i>
+                        <input type="text" id="api-endpoint" placeholder="Enter Localtunnel URL (e.g., https://your-url.loca.lt)">
+                    </div>
+                    <div class="input-group secret-input">
+                        <i data-lucide="key"></i>
+                        <input type="password" id="api-key" placeholder="API Secret Key" value="your_super_secret_api_key_here">
+                    </div>
+                    <button id="btn-live-test" class="btn btn-primary pulse-light" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                        <i data-lucide="rocket"></i> <span data-i18n="live-btn">Send Telemetry to NARA-T</span>
+                    </button>
+                </div>
+
+                <!-- 2. Simulation Visuals -->
+                <div class="sim-visual" id="sim-visual-area">
+                    <div class="sim-personas">
+                        <div class="persona p-student" id="pers-stu"><i data-lucide="book-open"></i> <span data-i18n="sim-p1">Student</span></div>
+                        <div class="persona p-athlete" id="pers-ath"><i data-lucide="dumbbell"></i> <span data-i18n="sim-p2">Athlete</span></div>
+                        <div class="persona p-commuter" id="pers-com"><i data-lucide="car"></i> <span data-i18n="sim-p3">Commuter</span></div>
+                    </div>
+                    
+                    <div class="sim-arrows" id="sim-arrows" style="opacity: 0.2; transition: opacity 0.3s;">
+                        <div class="path-line" style="top: 20%;"></div>
+                        <div class="path-line" style="top: 50%;"></div>
+                        <div class="path-line" style="top: 80%;"></div>
+
+                        <!-- Packets without 'go' or 'return' initially -->
+                        <div class="packet pkt-stu" id="pkt-stu-go" style="top: 20%;"></div>
+                        <div class="packet pkt-stu" id="pkt-stu-return" style="top: 20%;"></div>
+                        
+                        <div class="packet pkt-ath" id="pkt-ath-go" style="top: 50%;"></div>
+                        <div class="packet pkt-ath" id="pkt-ath-return" style="top: 50%;"></div>
+                        
+                        <div class="packet pkt-com" id="pkt-com-go" style="top: 80%;"></div>
+                        <div class="packet pkt-com" id="pkt-com-return" style="top: 80%;"></div>
+                    </div>
+
+                    <div class="sim-server" id="sim-server">
+                        <i class="lucide lucide-server"></i>
+                        <span class="nara-badge">NARA-T<br>SageMaker</span>
+                    </div>
+                </div>
+
+                <!-- 3. Outputs (Terminal & Rendered Cards) -->
+                <div class="live-split" style="margin-top: 2rem;">
+                    <!-- Terminal Output -->
+                    <div class="live-terminal">
+                        <div class="term-header" style="justify-content: space-between;">
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <div class="dots"><span></span><span></span><span></span></div>
+                                <div class="term-title">sagemaker-user@nara-t: ~/logs</div>
+                            </div>
+                            <div id="live-latency" class="latency-badge" style="opacity: 0;">-- ms</div>
+                        </div>
+                        <div class="term-body" id="term-logs">
+                            <div class="term-line log-info">System Ready. Awaiting connection to Agent Fleet...</div>
+                        </div>
+                    </div>
+
+                    <!-- UI Rendered Output -->
+                    <div class="live-ui-output">
+                        <h3 data-i18n="live-ui-title">Rendered Result</h3>
+                        <div class="rendered-cards" id="live-ui-cards">
+                            <div class="empty-state">
+                                <i data-lucide="radio"></i>
+                                <p data-i18n="live-empty">Awaiting telemetry data...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Summary Panel (Chapter 3: Post-Simulation Insights) -->
+                <div id="sim-summary-panel" class="sim-summary-panel" style="display: none;">
+                    <div class="summary-header">
+                        <i data-lucide="trophy"></i>
+                        <h3 id="summary-title" data-i18n="summary-title">Live Experiment Summary</h3>
+                    </div>
+                    <div class="summary-stats-grid">
+                        <div class="summary-stat">
+                            <div class="summary-stat-icon"><i data-lucide="users"></i></div>
+                            <div class="summary-stat-number" id="sum-personas">--</div>
+                            <div class="summary-stat-desc" data-i18n="sum-personas-desc">personas simulated successfully</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-stat-icon"><i data-lucide="zap"></i></div>
+                            <div class="summary-stat-number" id="sum-latency">--</div>
+                            <div class="summary-stat-desc" data-i18n="sum-latency-desc">average response time</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-stat-icon"><i data-lucide="sparkles"></i></div>
+                            <div class="summary-stat-number" id="sum-unique">0%</div>
+                            <div class="summary-stat-desc" data-i18n="sum-unique-desc">repeat rate (every recommendation is unique)</div>
+                        </div>
+                    </div>
+                    <div class="summary-insight" id="sum-insight">
+                        <i data-lucide="brain"></i>
+                        <p id="sum-insight-text" data-i18n="sum-insight-text">NARA-T selected the perfect track for each persona from 5,000 artists based on their real-time context.</p>
+                    </div>
+                    <div class="summary-contexts" id="sum-contexts-list">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- Interactive Playground Section -->
         <section id="playground" class="playground features">
             <div class="section-header">
@@ -136,6 +277,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- Performance Metrics Section -->
         <section id="metrics" class="metrics">
@@ -245,12 +388,20 @@ print(response.json())</code></pre>
                 <span class="nara">NARA</span><span class="t">-T</span>
             </div>
             <p data-i18n="footer-text">Built with PyTorch & FastAPI. <br>The Contextual Audio Brain.</p>
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#api">API</a>
+                <a href="#whitepaper">Whitepaper</a>
+            </div>
+            <div class="footer-copyright">© 2026 NARA-T Project — Neural Algorithmic Recommendation Agent</div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=5576"></script>
     <script>
         lucide.createIcons();
     </script>

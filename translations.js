@@ -17,6 +17,19 @@ const translations = {
         "feat3-title": "Contextual Awareness",
         "feat3-desc": "Adapts instantly. A user commuting in the morning receives vastly different recommendations than while sleeping.",
 
+        "sim-title": "AI Testing AI",
+        "sim-subtitle": "Validated by the Gemini Fleet Simulator. Millions of contextual interactions tested before human release.",
+        "sim-p1": "Student",
+        "sim-p2": "Athlete",
+        "sim-p3": "Commuter",
+
+        "live-title": "NARA-T Live Core",
+        "live-subtitle": "Connect directly to your running SageMaker instance and witness real-time inference.",
+        "live-btn": "Send Telemetry to NARA-T",
+        "live-waiting": "Waiting for connection...",
+        "live-ui-title": "Rendered Result",
+        "live-empty": "Awaiting telemetry data...",
+
         "play-title": "Experience the Context",
         "play-subtitle": "Simulate real-world conditions and watch NARA-T adapt its recommendations instantly.",
         "play-controls": "Set Context",
@@ -51,7 +64,18 @@ const translations = {
         "api-title": "Seamless Integration",
         "api-subtitle": "Connect to the lightweight Python production API.",
         "footer-text": "Built with PyTorch & FastAPI. <br>The Contextual Audio Brain.",
-        "lang-name": "العربية"
+        "lang-name": "العربية",
+
+        "stat-artists": "Artists in Database",
+        "stat-interactions": "Real Listening Records",
+        "stat-personas": "AI Test Personas",
+        "stat-latency": "Inference per Track",
+
+        "summary-title": "🏆 Live Experiment Summary",
+        "sum-personas-desc": "Personas simulated successfully",
+        "sum-latency-desc": "Average response time",
+        "sum-unique-desc": "Repeat rate (every recommendation is unique)",
+        "sum-insight-text": "NARA-T selected the perfect track for each persona from 5,000 artists based on their real-time context."
     },
     ar: {
         "nav-features": "الميزات",
@@ -70,6 +94,19 @@ const translations = {
         "feat2-desc": "يدمج الذكريات أثناء الخمول. ينقل إشارات الجلسة قصيرة المدى إلى تضمينات هوية طويلة المدى.",
         "feat3-title": "الوعي السياقي",
         "feat3-desc": "يتكيف فورياً. المستخدم الذي يتنقل في الصباح يتلقى توصيات مختلفة جذرياً عما يتلقاه أثناء فترات النوم.",
+
+        "sim-title": "الذكاء الاصطناعي يختبر الذكاء الاصطناعي",
+        "sim-subtitle": "تم التحقق منه عبر (Gemini Fleet Simulator). ملايين التفاعلات السياقية تم اختبارها بواسطة شخصيات AI قبل الإطلاق البشري.",
+        "sim-p1": "طالب إعدادي",
+        "sim-p2": "رياضي محترف",
+        "sim-p3": "موظف متنقل",
+
+        "live-title": "البث المباشر لمحرك NARA-T",
+        "live-subtitle": "اربط اتصالاً آمناً مع مثيل SageMaker لتراقب سرعة وقوة الاستنتاج في الوقت الفعلي.",
+        "live-btn": "إرسال البيانات اللحظية إلى NARA-T",
+        "live-waiting": "في انتظار الاتصال...",
+        "live-ui-title": "النتيجة المرئية للمستخدم",
+        "live-empty": "في انتظار استقبال البيانات اللحظية...",
 
         "play-title": "جرب السياق بنفسك",
         "play-subtitle": "حاكي ظروف العالم الحقيقي وشاهد NARA-T وهو يكيف توصياته فوراً.",
@@ -105,6 +142,17 @@ const translations = {
         "api-title": "تكامل سلس",
         "api-subtitle": "اتصل بواجهة البايثون الإنتاجية الخفيفة بسهولة.",
         "footer-text": "مبني باستخدام PyTorch و FastAPI. <br>الذكاء الاصطناعي الصوتي.",
-        "lang-name": "English"
+        "lang-name": "English",
+
+        "stat-artists": "فنان في قاعدة البيانات",
+        "stat-interactions": "تفاعل استماع حقيقي",
+        "stat-personas": "شخصية ذكاء اصطناعي",
+        "stat-latency": "زمن الاستجابة لكل مقطع",
+
+        "summary-title": "🏆 خلاصة التجربة الحية",
+        "sum-personas-desc": "شخصية تمت محاكاتها بنجاح",
+        "sum-latency-desc": "متوسط زمن الاستجابة",
+        "sum-unique-desc": "معدل التكرار (كل توصية فريدة ومختلفة)",
+        "sum-insight-text": "NARA-T اختار المقطع المناسب لكل شخصية من بين 5,000 فنان بناءً على سياقها اللحظي."
     }
 };
