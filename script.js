@@ -65,10 +65,84 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.feature-card').forEach((card, index) => {
+    document.querySelectorAll('.feature-card, .metric-card').forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
         observer.observe(card);
+    });
+
+    // 4. Interactive Playground Logic
+    const recData = {
+        "morning-focus": { title: "Deep Focus Playlist", desc: { en: "Lo-Fi beats optimized for morning concentration.", ar: "إيقاعات هادئة (Lo-Fi) محسنة للتركيز الصباحي." }, icon: "headphones", color: "var(--accent-glow)" },
+        "morning-workout": { title: "High Energy Drive", desc: { en: "120 BPM tracks to match your morning workout pace.", ar: "مقاطع حيوية 120 نبضة لمطابقة إيقاع تمرينك الصباحي." }, icon: "zap", color: "linear-gradient(135deg, #ef4444, #f97316)" },
+        "morning-sleep": { title: "Gentle Wake-up", desc: { en: "Acoustic melodies for a smooth transition from sleep.", ar: "ألحان صوتية هادئة لانتقال سلس من مرحلة النوم." }, icon: "sunrise", color: "linear-gradient(135deg, #f59e0b, #eab308)" },
+
+        "evening-focus": { title: "Late Night Code", desc: { en: "Ambient electronic tracks for extended evening focus.", ar: "موسيقى إلكترونية محيطية لتركيز مسائي ممتد." }, icon: "terminal", color: "linear-gradient(135deg, #8b5cf6, #3b82f6)" },
+        "evening-workout": { title: "Evening Release", desc: { en: "Heavy bass tracks to release end-of-day stress.", ar: "مقاطع ذات إيقاع قوي لتفريغ توتر نهاية اليوم." }, icon: "flame", color: "linear-gradient(135deg, #ec4899, #f43f5e)" },
+        "evening-sleep": { title: "Deep Sleep Cycles", desc: { en: "Binaural delta waves to facilitate REM sleep phases.", ar: "موجات (بكلتا الأذنين) لتسهيل مراحل النوم العميق." }, icon: "cloud-moon", color: "linear-gradient(135deg, #38bdf8, #818cf8)" }
+    };
+
+    let selectedTime = "morning";
+    let selectedActivity = "focus";
+
+    const timeBtns = document.querySelectorAll('#time-toggle button');
+    const activityBtns = document.querySelectorAll('#activity-toggle button');
+
+    const recTitle = document.getElementById('rec-title');
+    const recDesc = document.getElementById('rec-desc');
+    const recIconBox = document.querySelector('.rec-icon');
+    const recIconSvg = document.getElementById('rec-icon-svg');
+    const recResult = document.getElementById('rec-result');
+
+    function updateRecommendation() {
+        // Simple animation trigger
+        recResult.style.transform = 'scale(0.95)';
+        recResult.style.opacity = '0.7';
+
+        setTimeout(() => {
+            const key = `${selectedTime}-${selectedActivity}`;
+            const data = recData[key];
+
+            recTitle.textContent = data.title;
+            // Handle language for dynamic description
+            recDesc.textContent = currentLang === 'ar' ? data.desc.ar : data.desc.en;
+
+            // Revert animation trigger
+            recResult.style.transform = 'scale(1)';
+            recResult.style.opacity = '1';
+
+            // Update icon and color
+            recIconBox.style.background = data.color;
+            recIconSvg.setAttribute('data-lucide', data.icon);
+            lucide.createIcons();
+        }, 150);
+    }
+
+    // Toggle button logic
+    function setupToggles(buttons, isTimeToggle) {
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                if (isTimeToggle) {
+                    selectedTime = btn.getAttribute('data-val');
+                } else {
+                    selectedActivity = btn.getAttribute('data-val');
+                }
+
+                updateRecommendation();
+            });
+        });
+    }
+
+    setupToggles(timeBtns, true);
+    setupToggles(activityBtns, false);
+
+    // Listen for language changes to update dynamic playground text
+    langBtn.addEventListener('click', () => {
+        // The click logic in setLanguage runs first, so currentLang is updated
+        setTimeout(updateRecommendation, 50);
     });
 });

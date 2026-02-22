@@ -95,6 +95,112 @@
             </div>
         </section>
 
+        <!-- Interactive Playground Section -->
+        <section id="playground" class="playground features">
+            <div class="section-header">
+                <h2 data-i18n="play-title">Experience the Context</h2>
+                <p data-i18n="play-subtitle">Simulate real-world conditions and watch NARA-T adapt its recommendations instantly.</p>
+            </div>
+            
+            <div class="playground-container glass-card">
+                <div class="controls-panel">
+                    <h3 data-i18n="play-controls">Set Context</h3>
+                    
+                    <div class="control-group">
+                        <label data-i18n="play-time">Time of Day</label>
+                        <div class="toggle-buttons" id="time-toggle">
+                            <button class="active" data-val="morning" data-i18n="play-morning"><i data-lucide="sun"></i> Morning</button>
+                            <button data-val="evening" data-i18n="play-evening"><i data-lucide="moon"></i> Evening</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label data-i18n="play-mood">Current Activity</label>
+                        <div class="toggle-buttons" id="activity-toggle">
+                            <button class="active" data-val="focus" data-i18n="play-focus"><i data-lucide="target"></i> Focus</button>
+                            <button data-val="workout" data-i18n="play-workout"><i data-lucide="activity"></i> Workout</button>
+                            <button data-val="sleep" data-i18n="play-sleep"><i data-lucide="bed"></i> Sleep</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="output-panel">
+                    <h3 data-i18n="play-output">NARA-T Recommendation</h3>
+                    <div class="result-card pulse-light" id="rec-result">
+                        <div class="rec-icon"><i data-lucide="headphones" id="rec-icon-svg"></i></div>
+                        <div class="rec-details">
+                            <h4 id="rec-title">Deep Focus Playlist</h4>
+                            <p id="rec-desc">Lo-Fi beats optimized for morning concentration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Metrics Section -->
+        <section id="metrics" class="metrics">
+            <div class="section-header">
+                <h2 data-i18n="metrics-title">Enterprise-Grade Performance</h2>
+                <p data-i18n="metrics-subtitle">Trained on massive datasets in AWS SageMaker with proven reinforcement learning stability.</p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card glass-card">
+                    <div class="metric-value gradient-text">0.2320</div>
+                    <div class="metric-label" data-i18n="metric-reward">Peak Policy Reward</div>
+                </div>
+                <div class="metric-card glass-card">
+                    <div class="metric-value gradient-text">50%</div>
+                    <div class="metric-label" data-i18n="metric-confidence">Mood Confidence Score</div>
+                </div>
+                <div class="metric-card glass-card">
+                    <div class="metric-value gradient-text">< 10ms</div>
+                    <div class="metric-label" data-i18n="metric-latency">Inference Latency</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="use-cases features">
+            <div class="section-header">
+                <h2 data-i18n="cases-title">Versatile Applications</h2>
+                <p data-i18n="cases-subtitle">Designed to plug seamlessly into your existing platform ecosystems.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card glass-card">
+                    <div class="icon-box"><i data-lucide="music-4"></i></div>
+                    <h3 data-i18n="case1-title">Music Streaming</h3>
+                    <p data-i18n="case1-desc">Elevate user retention with playlists that match the exact vibe of the user's current environment.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="icon-box"><i data-lucide="radio"></i></div>
+                    <h3 data-i18n="case2-title">Podcast Networks</h3>
+                    <p data-i18n="case2-desc">Surface relevant episodes based on commute routines and listening habits.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="icon-box"><i data-lucide="heart-pulse"></i></div>
+                    <h3 data-i18n="case3-title">Wellness Apps</h3>
+                    <p data-i18n="case3-desc">Provide the perfect meditation or sleep tracks dynamically adapted to the user's stress levels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Whitepaper Section -->
+        <section id="whitepaper" class="whitepaper">
+            <div class="cta-card glass-card">
+                <div class="cta-content">
+                    <h2 data-i18n="wp-title">Dive Deeper into the Architecture</h2>
+                    <p data-i18n="wp-desc">Read the official whitepaper detailing the Hebbian sleep mechanisms, Triple-Head Intent, and the mathematical foundations of NARA-T.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="NARA_T_Whitepaper_AR.md" target="_blank" class="btn btn-primary" download>
+                        <i data-lucide="file-text"></i> <span data-i18n="wp-btn">Read Whitepaper</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- API / Code Snippet Section -->
         <section id="api" class="api-demo">
              <div class="section-header">
