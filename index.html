@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NARA-T | The Contextual Audio Brain</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+    <!-- Background Elements -->
+    <div class="glow-sphere sphere-1"></div>
+    <div class="glow-sphere sphere-2"></div>
+    <div class="glow-sphere sphere-3"></div>
+    <div class="grid-overlay"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="nara">NARA</span><span class="t">-T</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features" data-i18n="nav-features">Features</a>
+            <a href="#architecture" data-i18n="nav-architecture">Architecture</a>
+            <a href="#api" data-i18n="nav-api">API</a>
+            <button id="lang-toggle" class="btn-icon">
+                <i data-lucide="globe"></i> <span id="current-lang">العربية</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <div class="badge" data-i18n="hero-badge">🚀 Version 1.0 (Production Ready)</div>
+                <h1 class="hero-title" data-i18n="hero-title">The Contextual<br><span class="gradient-text">Audio Brain</span></h1>
+                <p class="hero-subtitle" data-i18n="hero-subtitle">
+                    NARA-T is an advanced reinforcement learning recommender system. It actively adapts to user mood, temporal context, and behavioral drivers, learning iteratively through Hebbian simulated sleep.
+                </p>
+                <div class="hero-actions">
+                    <a href="#api" class="btn btn-primary" data-i18n="btn-get-started">Get Started</a>
+                    <a href="https://github.com/moathk8/nara_t" target="_blank" class="btn btn-secondary">
+                        <i data-lucide="github"></i> <span data-i18n="btn-github">View Source</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+               <!-- Interactive Visual Representation -->
+               <div class="glass-card visual-card">
+                   <div class="node-network">
+                       <div class="node n-user"><i data-lucide="user"></i> User</div>
+                       <div class="path p1"></div>
+                       <div class="node n-context pulse"><i data-lucide="clock"></i> Focus</div>
+                       <div class="path p2"></div>
+                       <div class="node n-brain">NARA Core</div>
+                       <div class="path p3"></div>
+                       <div class="node n-output"><i data-lucide="music"></i> Lofi Beats</div>
+                   </div>
+               </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="section-header">
+                <h2 data-i18n="features-title">Cognitive Capabilities</h2>
+                <p data-i18n="features-subtitle">Beyond simple embeddings. A system that thinks contextually.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card">
+                    <div class="icon-box"><i data-lucide="brain-circuit"></i></div>
+                    <h3 data-i18n="feat1-title">Triple-Head Intent</h3>
+                    <p data-i18n="feat1-desc">Decodes the subtle "why" behind every click. Analyzes drivers like Discovery, Routine, Impulse, and KidsCare.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card">
+                    <div class="icon-box"><i data-lucide="moon"></i></div>
+                    <h3 data-i18n="feat2-title">Hebbian Sleep Cycle</h3>
+                    <p data-i18n="feat2-desc">Consolidates memories when inactive. Transfers short-term session signals into long-term identity embeddings.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card">
+                    <div class="icon-box"><i data-lucide="compass"></i></div>
+                    <h3 data-i18n="feat3-title">Contextual Awareness</h3>
+                    <p data-i18n="feat3-desc">Adapts instantly. A user commuting in the morning receives vastly different recommendations than while sleeping.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- API / Code Snippet Section -->
+        <section id="api" class="api-demo">
+             <div class="section-header">
+                <h2 data-i18n="api-title">Seamless Integration</h2>
+                <p data-i18n="api-subtitle">Connect to the lightweight Python production API.</p>
+            </div>
+
+            <div class="code-window glass-card">
+                <div class="code-header">
+                    <div class="dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="file-name">request.py</div>
+                    <button class="copy-btn" id="copy-btn"><i class="lucide lucide-copy"></i></button>
+                </div>
+                <div class="code-content">
+<pre><code class="language-python">import requests
+
+url = "https://nara-t.api/recommend"
+payload = {
+    "user_id": "usr_9x2L",
+    "session_id": "sess_1a",
+    "context": {
+        "hour": 22.5,
+        "device": "speaker",
+        "session_phase": "winddown",
+        "is_sleep": True
+    },
+    "num_results": 10
+}
+
+response = requests.post(url, json=payload)
+print(response.json())</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <span class="nara">NARA</span><span class="t">-T</span>
+            </div>
+            <p data-i18n="footer-text">Built with PyTorch & FastAPI. <br>The Contextual Audio Brain.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
